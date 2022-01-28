@@ -1,23 +1,35 @@
 import logo from './logo.svg';
 import './App.css';
-
+import FormNewPost from './components/FormNewPost/FormUpdatePost'
+import {BrowserRouter,Link,Route, Routes} from 'react-router-dom'
+import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
+  let [id, setId] = useState("");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <div>
+                <h1>home</h1>
+                <input
+                  value={id}
+                  onChange={(e) => {
+                    setId(e.target.value);
+                  }}
+                />
+                <Link to={"editpost/" + id}>Go product</Link>
+              </div>
+            }
+          />
+
+          <Route path={"/editpost/:id"} element={<FormNewPost />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
