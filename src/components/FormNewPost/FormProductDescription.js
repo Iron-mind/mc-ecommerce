@@ -18,7 +18,7 @@ const FormProductDescription = ({
     prevStep();
   };
   return (
-    <form>
+    <form className="container">
       <div className="mb-3">
         <label className="form-label">Choose Category</label>
         <select
@@ -38,7 +38,7 @@ const FormProductDescription = ({
             );
           })}
         </select>
-        <ul className="column">
+        <ul className="column m-1">
           {input.Categories?.map((c, i) => {
             let name = allCategories.filter(e=>e.id==c)
             return (
@@ -81,17 +81,7 @@ const FormProductDescription = ({
         />
         <div className="form-text">Amount of products you have on stock</div>
       </div>
-      <div className="mb-3">
-        <label className="form-label">Default file input example</label>
-        <input
-          className="form-control"
-          type="file"
-          name="images"
-
-          onBlur={handleBlur}
-          onChange={handleChange}
-        />
-      </div>
+      
       <div className="mb-3">
         <label className="form-label">Description</label>
         <br />

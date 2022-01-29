@@ -120,6 +120,12 @@ export default function FormNewPost() {
       }
     })
   };
+  const addImage = (link) => {
+    setInput({
+      ...input,
+      Images: [...input.Images, link]
+    })
+  };
 
   // Handle errors by blur event
   const handleBlur = () => {
@@ -138,7 +144,7 @@ export default function FormNewPost() {
     //   description: "",
     //   price: "",
     // });
-    alert(input.Images)
+    
   };
 
   switch (step) {
@@ -146,9 +152,12 @@ export default function FormNewPost() {
       return (
         <FormProductDetail
           nextStep={nextStep}
-          handleChange={handleChange}
+          addImage={addImage}
           handleBlur={handleBlur}
           input={input}
+          Images={input.Images}
+          deleteMultiOption={deleteMultiOption}
+          handleChange={handleChange}
         />
       );
     case 2:

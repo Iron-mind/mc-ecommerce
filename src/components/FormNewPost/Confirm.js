@@ -13,8 +13,9 @@ const FormProductDetail = ({ nextStep, prevStep, input, handleSubmit }) => {
     }
 
         return (
-            <form>
+            <form className="container">
                 <ul className="list-group">
+                    
                     <li className="list-group-item" name="title" >{input.title}</li>
                     <li className="list-group-item" name="categoryId" >{input.categoryId}</li>
                     <li className="list-group-item" name="condition" >{input.condition}</li>
